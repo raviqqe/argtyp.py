@@ -49,3 +49,27 @@ def float_list(string):
     [123.0, 456.0]
     """
     return csv(string, float)
+
+
+def csv_file(filename):
+    """
+    >>> csv_file('test/foo.csv')
+    [['1', '2', '3'], ['4', '5', '6']]
+    """
+    return [line.split(',') for line in file_lines(filename)]
+
+
+def int_csv_file(filename):
+    """
+    >>> int_csv_file('test/foo.csv')
+    [[1, 2, 3], [4, 5, 6]]
+    """
+    return [[int(n) for n in record] for record in csv_file(filename)]
+
+
+def float_csv_file(filename):
+    """
+    >>> float_csv_file('test/foo.csv')
+    [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]]
+    """
+    return [[float(n) for n in record] for record in csv_file(filename)]
