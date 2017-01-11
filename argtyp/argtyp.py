@@ -1,5 +1,17 @@
+import json
+
+
 def _identity(x):
     return x
+
+
+def json_file(filename):
+    """
+    >>> json_file('test/foo.json')
+    {'foo': [1, 2, 3], 'bar': 'baz'}
+    """
+    with open(filename) as file:
+        return json.load(file)
 
 
 def text_file(filename):
