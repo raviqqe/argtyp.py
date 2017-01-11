@@ -7,8 +7,8 @@ def _identity(x):
 
 def json_file(filename):
     """
-    >>> json_file('test/foo.json')
-    {'foo': [1, 2, 3], 'bar': 'baz'}
+    >>> sorted(json_file('test/foo.json').items())
+    [('bar', 'baz'), ('foo', [1, 2, 3])]
     """
     with open(filename) as file:
         return json.load(file)
